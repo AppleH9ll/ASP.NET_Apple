@@ -1,0 +1,23 @@
+@model Order
+@{ Layout = "_AdminLayout"; ViewData["Title"] = $"Заказ №{Model.Id}"; }
+<div class="card">
+    <h3>Изменение статуса заказа №@Model.Id</h3>
+    <p style="margin: 10px 0;">Клиент: <strong>@Model.User?.Login</strong></p>
+    <p style="margin-bottom: 20px;">Сумма: <strong>@Model.TotalAmount.ToString("N0") ₽</strong></p>
+    
+    <form method="post" action="/Admin/Orders/Edit/@Model.Id">
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <label>Статус заказа</label>
+            <select name="status" class="form-control">
+                <option value="created" selected="@(Model.Status == "created")">Создан</option>
+                <option value="paid" selected="@(Model.Status == "paid")">Оплачен</option>
+                <option value="shipped" selected="@(Model.Status == "shipped")">Отправлен</option>
+                <option value="completed" selected="@(Model.Status == "completed")">Выполнен</option>
+                <option value="cancelled" selected="@(Model.Status == "cancelled")">Отменен</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Обновить статус</button>
+        <a href="/Admin/Orders" class="btn btn-outline">Назад</a>
+    </form>
+</div>

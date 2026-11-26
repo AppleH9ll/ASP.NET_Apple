@@ -1,0 +1,11 @@
+@model Role
+@{ Layout = "_AdminLayout"; ViewData["Title"] = "Удаление роли"; }
+<div class="card">
+    <h3 style="color: #dc2626; margin-bottom: 15px;">Удалить роль "@Model.Name"?</h3>
+    <hr style="margin: 20px 0; border: none; border-top: 1px solid #e2e8f0;" />
+    <form method="post" action="/Admin/Roles/Delete/@Model.Id">
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-danger">Да, удалить</button>
+        <a href="/Admin/Roles" class="btn btn-outline">Отмена</a>
+    </form>
+</div>

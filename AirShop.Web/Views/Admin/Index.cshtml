@@ -1,0 +1,28 @@
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Главная";
+}
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <h3>Товары</h3>
+        <div class="value">@ViewBag.ProductsCount</div>
+    </div>
+    <div class="stat-card">
+        <h3>Заказы</h3>
+        <div class="value">@ViewBag.OrdersCount</div>
+    </div>
+    <div class="stat-card">
+        <h3>Пользователи</h3>
+        <div class="value">@ViewBag.UsersCount</div>
+    </div>
+    <div class="stat-card">
+        <h3>Категории</h3>
+        <div class="value">@ViewBag.CategoriesCount</div>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Добро пожаловать в панель управления!</h2>
+    <p style="margin-top: 10px; color: #64748b;">Выберите раздел в меню слева для управления данными.</p>
+</div>

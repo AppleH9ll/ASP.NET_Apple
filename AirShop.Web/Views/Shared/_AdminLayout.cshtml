@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] — Админка AirShop</title>
+    <link rel="stylesheet" href="~/css/admin.css" />
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Боковое меню -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="/Admin" class="brand">AirShop Admin</a>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="/Admin" class="nav-item">Дашборд</a>
+                <a href="/Admin/Products" class="nav-item">Товары</a>
+                <a href="/Admin/Categories" class="nav-item">Категории</a>
+                <a href="/Admin/Orders" class="nav-item">Заказы</a>
+                <a href="/Admin/Users" class="nav-item">Пользователи</a>
+                <a href="/Admin/Roles" class="nav-item">Роли</a>
+                <hr />
+                <a href="/Catalog" class="nav-item" target="_blank">На сайт</a>
+            </nav>
+        </aside>
+
+        <!-- Контентная часть -->
+        <main class="admin-content">
+            <header class="admin-header">
+                <h1>@ViewData["Title"]</h1>
+            </header>
+            <div class="admin-body">
+                @RenderBody()
+            </div>
+        </main>
+    </div>
+</body>
+</html>

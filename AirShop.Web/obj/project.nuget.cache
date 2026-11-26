@@ -1,27 +1,68 @@
 {
   "version": 2,
-  "dgSpecHash": "gckq/Xl5XgI=",
+  "dgSpecHash": "hl8re7f6KVQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\AppleHell\\Documents\\GitHub\\ASP.NET_Apple\\AirShop.Web\\AirShop.Web.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\AppleHell\\.nuget\\packages\\microsoft.entityframeworkcore\\11.0.0\\microsoft.entityframeworkcore.11.0.0.nupkg.sha512",
-    "C:\\Users\\AppleHell\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\11.0.0\\microsoft.entityframeworkcore.abstractions.11.0.0.nupkg.sha512",
-    "C:\\Users\\AppleHell\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\11.0.0\\microsoft.entityframeworkcore.analyzers.11.0.0.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\10.0.0\\microsoft.aspnetcore.authentication.jwtbearer.10.0.0.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\microsoft.bcl.cryptography\\10.0.2\\microsoft.bcl.cryptography.10.0.2.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.4\\microsoft.entityframeworkcore.10.0.4.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.4\\microsoft.entityframeworkcore.abstractions.10.0.4.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.4\\microsoft.entityframeworkcore.analyzers.10.0.4.nupkg.sha512",
     "C:\\Users\\AppleHell\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\10.0.4\\microsoft.entityframeworkcore.relational.10.0.4.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\microsoft.extensions.apidescription.server\\10.0.0\\microsoft.extensions.apidescription.server.10.0.0.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.23.0\\microsoft.identitymodel.abstractions.8.23.0.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.23.0\\microsoft.identitymodel.jsonwebtokens.8.23.0.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\microsoft.identitymodel.logging\\8.23.0\\microsoft.identitymodel.logging.8.23.0.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\microsoft.identitymodel.protocols\\8.0.1\\microsoft.identitymodel.protocols.8.0.1.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\8.0.1\\microsoft.identitymodel.protocols.openidconnect.8.0.1.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.23.0\\microsoft.identitymodel.tokens.8.23.0.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\microsoft.openapi\\3.11.1\\microsoft.openapi.3.11.1.nupkg.sha512",
     "C:\\Users\\AppleHell\\.nuget\\packages\\npgsql\\10.0.3\\npgsql.10.0.3.nupkg.sha512",
-    "C:\\Users\\AppleHell\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\10.0.3\\npgsql.entityframeworkcore.postgresql.10.0.3.nupkg.sha512"
+    "C:\\Users\\AppleHell\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\10.0.3\\npgsql.entityframeworkcore.postgresql.10.0.3.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\swashbuckle.aspnetcore\\11.0.1\\swashbuckle.aspnetcore.11.0.1.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\11.0.1\\swashbuckle.aspnetcore.swagger.11.0.1.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\11.0.1\\swashbuckle.aspnetcore.swaggergen.11.0.1.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\11.0.1\\swashbuckle.aspnetcore.swaggerui.11.0.1.nupkg.sha512",
+    "C:\\Users\\AppleHell\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.23.0\\system.identitymodel.tokens.jwt.8.23.0.nupkg.sha512"
   ],
   "logs": [
     {
-      "code": "NU1608",
+      "code": "NU1903",
       "level": "Warning",
-      "message": "Версия обнаруженного пакета нарушает ограничение зависимости: Npgsql.EntityFrameworkCore.PostgreSQL 10.0.3 требуется Microsoft.EntityFrameworkCore (>= 10.0.4 && < 11.0.0), но в результате разрешения получена версия Microsoft.EntityFrameworkCore 11.0.0.",
+      "message": "У пакета \"AutoMapper\" 13.0.1 есть известная уязвимость https://github.com/advisories/GHSA-6vhm-j9h7-f9gh (уровень серьезности: высокий уровень)",
       "projectPath": "C:\\Users\\AppleHell\\Documents\\GitHub\\ASP.NET_Apple\\AirShop.Web\\AirShop.Web.csproj",
       "warningLevel": 1,
       "filePath": "C:\\Users\\AppleHell\\Documents\\GitHub\\ASP.NET_Apple\\AirShop.Web\\AirShop.Web.csproj",
-      "libraryId": "Microsoft.EntityFrameworkCore",
+      "libraryId": "AutoMapper",
       "targetGraphs": [
-        "net11.0"
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "У пакета \"AutoMapper\" 13.0.1 есть известная уязвимость https://github.com/advisories/GHSA-gpwp-5797-mjff (уровень серьезности: высокий уровень)",
+      "projectPath": "C:\\Users\\AppleHell\\Documents\\GitHub\\ASP.NET_Apple\\AirShop.Web\\AirShop.Web.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\AppleHell\\Documents\\GitHub\\ASP.NET_Apple\\AirShop.Web\\AirShop.Web.csproj",
+      "libraryId": "AutoMapper",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "У пакета \"AutoMapper\" 13.0.1 есть известная уязвимость https://github.com/advisories/GHSA-rvv3-g6hj-g44x (уровень серьезности: высокий уровень)",
+      "projectPath": "C:\\Users\\AppleHell\\Documents\\GitHub\\ASP.NET_Apple\\AirShop.Web\\AirShop.Web.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\AppleHell\\Documents\\GitHub\\ASP.NET_Apple\\AirShop.Web\\AirShop.Web.csproj",
+      "libraryId": "AutoMapper",
+      "targetGraphs": [
+        "net10.0"
       ]
     }
   ]

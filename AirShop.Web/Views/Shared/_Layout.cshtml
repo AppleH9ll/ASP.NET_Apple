@@ -1,8 +1,18 @@
 ﻿@inject AirShop.Web.Data.AppDbContext Db
+@using System.Security.Claims
 @{
-    var cartCount = Db.CartItems
-        .Where(ci => ci.Cart.UserId == 2)
-        .Sum(ci => (int?)ci.Quantity) ?? 0;
+    // Вычисляем количество товаров для ТЕКУЩЕГО авторизованного пользователя
+    int cartCount = 0;
+    if (User.Identity?.IsAuthenticated == true)
+    {
+        var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (int.TryParse(userIdStr, out int currentUserId))
+        {
+            cartCount = Db.CartItems
+                .Where(ci => ci.Cart.UserId == currentUserId)
+                .Sum(ci => (int?)ci.Quantity) ?? 0;
+        }
+    }
 }
 <!DOCTYPE html>
 <html lang="ru">
@@ -18,7 +28,7 @@
             <a class="brand" asp-controller="Catalog" asp-action="Index">
                 <span class="brand-mark">Air</span>Shop
             </a>
-            <nav class="nav">
+            <nav class="nav" style="display: flex; align-items: center; gap: 1.5rem;">
                 <a asp-controller="Catalog" asp-action="Index">Каталог</a>
                 <a asp-controller="Cart" asp-action="Index" class="cart-link">
                     Корзина
@@ -27,6 +37,26 @@
                         <span class="badge">@cartCount</span>
                     }
                 </a>
+
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <span style="color: #64748b; font-size: 0.9rem;">
+                        Привет, @(User.FindFirst("FullName")?.Value ?? User.Identity.Name)!
+                    </span>
+                    @if (User.IsInRole("admin") || User.IsInRole("manager"))
+                    {
+                        <a asp-controller="Admin" asp-action="Index" style="color: #2563eb; font-weight: bold;">Админка</a>
+                    }
+                    <form method="post" asp-controller="Account" asp-action="Logout" style="display:inline; margin: 0;">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-outline" style="padding: 5px 10px; font-size: 0.9rem;">Выйти</button>
+                    </form>
+                }
+                else
+                {
+                    <a asp-controller="Account" asp-action="Login">Войти</a>
+                    <a asp-controller="Account" asp-action="Register">Регистрация</a>
+                }
             </nav>
         </div>
     </header>

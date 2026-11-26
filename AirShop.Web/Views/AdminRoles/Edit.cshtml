@@ -1,0 +1,12 @@
+@model Role
+@{ Layout = "_AdminLayout"; ViewData["Title"] = "Роль"; }
+<div class="card">
+    <form method="post" action="/Admin/Roles/Edit/@Model.Id">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        @Html.AntiForgeryToken()
+        <div class="form-group"><label>Название</label><input type="text" name="Name" class="form-control" value="@Model.Name" required /></div>
+        <div class="form-group"><label>Описание</label><textarea name="Description" class="form-control" rows="3">@Model.Description</textarea></div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+        <a href="/Admin/Roles" class="btn btn-outline">Отмена</a>
+    </form>
+</div>

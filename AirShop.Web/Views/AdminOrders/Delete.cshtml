@@ -1,0 +1,11 @@
+@model Order
+@{ Layout = "_AdminLayout"; ViewData["Title"] = "Удаление заказа"; }
+<div class="card">
+    <h3 style="color: #dc2626; margin-bottom: 15px;">Удалить заказ №@Model.Id?</h3>
+    <p>Вместе с заказом будут удалены все его позиции (OrderItems).</p>
+    <form method="post" action="/Admin/Orders/Delete/@Model.Id" style="margin-top: 20px;">
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-danger">Да, удалить</button>
+        <a href="/Admin/Orders" class="btn btn-outline">Отмена</a>
+    </form>
+</div>

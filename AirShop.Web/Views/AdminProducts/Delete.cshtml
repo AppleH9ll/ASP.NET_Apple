@@ -1,0 +1,18 @@
+@model Product
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Удаление товара";
+}
+
+<div class="card">
+    <h3 style="color: #dc2626; margin-bottom: 15px;">Вы уверены, что хотите удалить этот товар?</h3>
+    <p><strong>Название:</strong> @Model.Name</p>
+    <p><strong>Цена:</strong> @Model.Price.ToString("N0") ₽</p>
+    <hr style="margin: 20px 0; border: none; border-top: 1px solid #e2e8f0;" />
+    
+    <form method="post" action="/Admin/Products/Delete/@Model.Id">
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-danger">Да, удалить</button>
+        <a href="/Admin/Products" class="btn btn-outline">Отмена</a>
+    </form>
+</div>

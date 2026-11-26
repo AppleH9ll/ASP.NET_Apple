@@ -7,6 +7,14 @@
 
 <h1 class="page-title">Корзина</h1>
 
+<!-- Блок вывода ошибки -->
+@if (TempData["Error"] != null)
+{
+    <div style="background: #fee2e2; color: #dc2626; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-weight: 500;">
+        @TempData["Error"]
+    </div>
+}
+
 @if (!Model.Items.Any())
 {
     <div class="empty">
@@ -58,8 +66,14 @@ else
         </tbody>
     </table>
 
-    <div class="cart-summary">
-        <div>Товаров: <strong>@totalCount</strong></div>
-        <div class="cart-total">Итого: <strong>@total.ToString("N0") ₽</strong></div>
+    <div class="cart-summary" style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+        <div style="font-size: 1.1rem;">Товаров: <strong>@totalCount</strong></div>
+        <div class="cart-total" style="font-size: 1.2rem;">Итого: <strong style="color: #2563eb;">@total.ToString("N0") ₽</strong></div>
+        
+        <!-- Кнопка оформления -->
+        <form method="post" asp-action="Checkout" style="margin: 0;">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-primary" style="font-size: 1rem; padding: 12px 24px;">Оформить заказ</button>
+        </form>
     </div>
 }
