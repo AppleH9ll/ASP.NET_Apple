@@ -11,6 +11,416 @@ html {
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
+:root {
+    --bg: #f4f7fb;
+    --surface: #ffffff;
+    --text: #0f172a;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --danger: #dc2626;
+    --danger-hover: #b91c1c;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: min(1180px, 100% - 2rem);
+    margin-inline: auto;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.brand {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+}
+
+.brand-mark {
+    color: var(--accent);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+    .nav a {
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color .15s ease;
+    }
+
+        .nav a:hover {
+            color: var(--accent);
+        }
+
+.cart-link {
+    position: relative;
+}
+
+.badge {
+    display: inline-block;
+    margin-left: .35rem;
+    min-width: 1.5rem;
+    padding: 0 .4rem;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-size: .8rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+/* ---------- Main ---------- */
+.main {
+    flex: 1;
+    padding: 2rem 0 3rem;
+}
+
+.hero {
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+    margin-bottom: 2rem;
+}
+
+    .hero h1 {
+        margin: 0 0 .5rem;
+        font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+        letter-spacing: -0.02em;
+    }
+
+    .hero p {
+        margin: 0;
+        color: var(--muted);
+    }
+
+/* ---------- Filters ---------- */
+.filters {
+    display: flex;
+    gap: .75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.75rem;
+}
+
+    .filters input,
+    .filters select {
+        padding: .7rem .9rem;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        font-size: .95rem;
+        background: var(--surface);
+        min-width: 200px;
+    }
+
+        .filters input:focus,
+        .filters select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+/* ---------- Product grid ---------- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+}
+
+.card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08), 0 16px 32px rgba(15, 23, 42, 0.08);
+    }
+
+.card-badge {
+    display: inline-block;
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--accent);
+    background: #eff6ff;
+    padding: .2rem .6rem;
+    border-radius: 999px;
+    align-self: flex-start;
+}
+
+.card-title {
+    margin: .25rem 0 0;
+    font-size: 1.1rem;
+}
+
+.card-desc {
+    color: var(--muted);
+    font-size: .92rem;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-meta {
+    display: flex;
+    gap: .75rem;
+    color: var(--muted);
+    font-size: .82rem;
+    margin-top: .25rem;
+}
+
+.card-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    padding-top: .75rem;
+    border-top: 1px solid var(--border);
+}
+
+.price {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-block;
+    padding: .55rem 1rem;
+    border: none;
+    border-radius: 10px;
+    font-size: .92rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .15s ease, transform .1s ease;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+}
+
+    .btn-primary:hover {
+        background: var(--accent-hover);
+    }
+
+    .btn-primary:active {
+        transform: scale(.98);
+    }
+
+.btn-ghost {
+    background: #f1f5f9;
+    color: var(--text);
+}
+
+    .btn-ghost:hover {
+        background: #e2e8f0;
+    }
+
+.btn-danger {
+    background: var(--danger);
+    color: #fff;
+}
+
+    .btn-danger:hover {
+        background: var(--danger-hover);
+    }
+
+/* ---------- Cart ---------- */
+.page-title {
+    margin: 0 0 1.5rem;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+    .cart-table th,
+    .cart-table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+        vertical-align: middle;
+    }
+
+    .cart-table thead th {
+        background: #f8fafc;
+        font-size: .82rem;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        color: var(--muted);
+        font-weight: 600;
+    }
+
+    .cart-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+.cart-product small {
+    display: block;
+    color: var(--muted);
+    font-size: .82rem;
+    margin-top: .15rem;
+}
+
+.qty-form {
+    display: flex;
+    gap: .4rem;
+    align-items: center;
+}
+
+    .qty-form input[type=number] {
+        width: 70px;
+        padding: .5rem .6rem;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        font-size: .95rem;
+        text-align: center;
+    }
+
+        .qty-form input[type=number]:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+.line-total {
+    font-weight: 600;
+}
+
+.cart-summary {
+    margin-top: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .75rem;
+}
+
+.cart-total {
+    font-size: 1.15rem;
+}
+
+    .cart-total strong {
+        color: var(--accent);
+    }
+
+/* ---------- Empty ---------- */
+.empty {
+    padding: 3rem 1.5rem;
+    text-align: center;
+    background: var(--surface);
+    border-radius: var(--radius);
+    color: var(--muted);
+    box-shadow: var(--shadow);
+}
+
+    .empty p {
+        margin: 0 0 1rem;
+    }
+
+/* ---------- Footer ---------- */
+.site-footer {
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+    padding: 1.25rem 0;
+    color: var(--muted);
+    font-size: .88rem;
+    text-align: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px) {
+    .cart-table thead {
+        display: none;
+    }
+
+    .cart-table, .cart-table tbody, .cart-table tr, .cart-table td {
+        display: block;
+        width: 100%;
+    }
+
+        .cart-table tr {
+            border-bottom: 1px solid var(--border);
+            padding: .5rem 0;
+        }
+
+        .cart-table td {
+            border-bottom: none;
+            padding: .35rem 1rem;
+        }
+
+            .cart-table td::before {
+                content: attr(data-label);
+                display: inline-block;
+                min-width: 100px;
+                color: var(--muted);
+                font-size: .82rem;
+                text-transform: uppercase;
+                letter-spacing: .04em;
+            }
+}
 
 .navbar-light .navbar-brand:focus-visible, .navbar-light .navbar-nav .nav-link:focus-visible {
   outline: 2px solid #212529;

@@ -1,0 +1,56 @@
+@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Каталог";
+    var categories = (List<Category>)ViewBag.Categories;
+    int? selected = ViewBag.SelectedCategory as int?;
+    string? search = ViewBag.Search as string;
+}
+
+<section class="hero">
+    <h1>Свежий воздух со всего мира</h1>
+    <p>Альпы, Байкал, Средиземноморье — доставим в герметичной упаковке.</p>
+</section>
+
+<form method="get" class="filters">
+    <input type="search" name="search" value="@search" placeholder="Поиск по названию…" />
+    <select name="categoryId">
+        <option value="">Все категории</option>
+        @foreach (var c in categories)
+        {
+            <option value="@c.Id" selected="@(selected == c.Id)">@c.Name</option>
+        }
+    </select>
+    <button type="submit" class="btn btn-primary">Найти</button>
+</form>
+
+@if (!Model.Any())
+{
+    <div class="empty">Ничего не нашлось. Попробуйте другой фильтр.</div>
+}
+else
+{
+    <div class="product-grid">
+        @foreach (var p in Model)
+        {
+            <article class="card">
+                <div class="card-badge">@p.Category?.Name</div>
+                <h2 class="card-title">@p.Name</h2>
+                <p class="card-desc">@p.Description</p>
+                <div class="card-meta">
+                    <span>@(p.VolumeLiters is null ? "" : $"{p.VolumeLiters} л")</span>
+                    <span>@p.OriginRegion</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">@p.Price.ToString("N0") ₽</span>
+                    <form asp-controller="Cart" asp-action="Add" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="productId" value="@p.Id" />
+                        <input type="hidden" name="quantity" value="1" />
+                        <input type="hidden" name="returnUrl" value="@Url.Action("Index", "Catalog")" />
+                        <button type="submit" class="btn btn-primary">В корзину</button>
+                    </form>
+                </div>
+            </article>
+        }
+    </div>
+}

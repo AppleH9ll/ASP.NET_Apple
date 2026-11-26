@@ -1,4 +1,10 @@
 {
-  "ExpandedNodes": [],
+  "ExpandedNodes": [
+    "",
+    "\\AirShop.Web",
+    "\\AirShop.Web\\wwwroot",
+    "\\AirShop.Web\\wwwroot\\css"
+  ],
+  "SelectedNode": "\\AirShop.Web\\wwwroot\\css\\site.css",
   "PreviewInSolutionExplorer": false
 }

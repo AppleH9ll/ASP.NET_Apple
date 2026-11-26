@@ -1,0 +1,65 @@
+@model Cart
+@{
+    ViewData["Title"] = "Корзина";
+    var total = Model.Items.Sum(i => i.LineTotal);
+    var totalCount = Model.Items.Sum(i => i.Quantity);
+}
+
+<h1 class="page-title">Корзина</h1>
+
+@if (!Model.Items.Any())
+{
+    <div class="empty">
+        <p>Корзина пуста.</p>
+        <a asp-controller="Catalog" asp-action="Index" class="btn btn-primary">Перейти в каталог</a>
+    </div>
+}
+else
+{
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Товар</th>
+                <th>Цена</th>
+                <th>Количество</th>
+                <th>Сумма</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>
+                        <div class="cart-product">
+                            <strong>@item.Product.Name</strong>
+                            <small>@item.Product.Category?.Name · @item.Product.OriginRegion</small>
+                        </div>
+                    </td>
+                    <td>@item.Product.Price.ToString("N0") ₽</td>
+                    <td>
+                        <form asp-action="Update" method="post" class="qty-form">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="itemId" value="@item.Id" />
+                            <input type="number" name="quantity" min="1" value="@item.Quantity" />
+                            <button type="submit" class="btn btn-ghost">↻</button>
+                        </form>
+                    </td>
+                    <td class="line-total">@item.LineTotal.ToString("N0") ₽</td>
+                    <td>
+                        <form asp-action="Remove" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="itemId" value="@item.Id" />
+                            <button type="submit" class="btn btn-danger">Удалить</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="cart-summary">
+        <div>Товаров: <strong>@totalCount</strong></div>
+        <div class="cart-total">Итого: <strong>@total.ToString("N0") ₽</strong></div>
+    </div>
+}

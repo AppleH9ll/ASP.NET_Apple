@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AirShop.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c348cf28c4b6dd003798ebf427ebbc4d7a4ae1b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86e015832bd35db49b320336da1a7c6e5ee153de")]
 [assembly: System.Reflection.AssemblyProductAttribute("AirShop.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AirShop.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
