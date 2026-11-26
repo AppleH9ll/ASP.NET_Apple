@@ -1,13 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\air-shop-frontend\\src",
-    "\\AirShop.Web",
-    "\\AirShop.Web\\Views\\AdminProducts",
-    "\\AirShop.Web\\Views\\Cart",
-    "\\AirShop.Web\\Views\\Catalog",
-    "\\AirShop.Web\\Views\\Shared"
+    ""
   ],
-  "SelectedNode": "\\AirShop.Web\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
